@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="WhoaMamaGame"
-run/main_scene="res://.dev/test_scene.tscn"
+run/main_scene="res://scenes/dev/BootstrapPrototyping.tscn"
 config/features=PackedStringArray("4.2", "C#", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*res://scenes/game_manager/GameManager.tscn"
 
 [dotnet]
 

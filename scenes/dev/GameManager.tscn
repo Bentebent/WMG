@@ -1,13 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://bq0cgttbsh5j3"]
+[gd_scene load_steps=5 format=3 uid="uid://cxxtru1pcwt6q"]
 
 [ext_resource type="Script" path="res://scenes/game_manager/DecisionEngine.cs" id="1_axdny"]
 [ext_resource type="Script" path="res://scenes/game_manager/GameManager.cs" id="1_gq2g5"]
 [ext_resource type="Script" path="res://scenes/game_manager/ui/UIManager.cs" id="1_hnhoj"]
 [ext_resource type="Script" path="res://scenes/game_manager/EventBus.cs" id="2_2uwxj"]
 
-[node name="GameManager" type="Node" node_paths=PackedStringArray("EventBus")]
+[node name="GameManager" type="Node" node_paths=PackedStringArray("EventBus", "DecisionEngine", "UIManager")]
 script = ExtResource("1_gq2g5")
 EventBus = NodePath("EventBus")
+DecisionEngine = NodePath("DecisionEngine")
+UIManager = NodePath("UIManager")
 
 [node name="EventBus" type="Node" parent="."]
 script = ExtResource("2_2uwxj")
