@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cydfwo687t8ju"]
+
+[ext_resource type="Script" path="res://scenes/decision/decisions/Decision.cs" id="1_owor0"]
+
+[resource]
+script = ExtResource("1_owor0")
+CardTemplatePath = "res://scenes/decision/decision_card/DecisionCard.tscn"
+ArtPath = ""
+Category = "Dev Category"
+Header = "Dev Header"
+Description = "Dev text that is kinda not very long but that is alright"

@@ -3,11 +3,8 @@ using Godot;
 
 namespace wmg
 {
-    public partial class GameManager : Node
+    public partial class EventBus : Node
     {
-        [Export]
-        public EventBus EventBus { get; private set; }
-
         // Called when the node enters the scene tree for the first time.
         public override void _Ready() { }
 

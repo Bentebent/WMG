@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dacwcnrmjmerx"]
+
+[ext_resource type="Script" path="res://scenes/decision/decisions/Decision.cs" id="1_flor0"]
+
+[resource]
+script = ExtResource("1_flor0")
+CardTemplatePath = "res://scenes/decision/decision_card/DecisionCard.tscn"
+ArtPath = "res://scenes/decision/decision_card/decision_card_art_placeholder.jpg"
+Category = "Dev Category"
+Header = "Dev Header"
+Description = "Dev Text thatoiaus dausdiuo yaoayusidoas oasuydoaydiouaysiduaysduio"

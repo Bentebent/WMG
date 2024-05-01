@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bq0cgttbsh5j3"]
+
+[ext_resource type="Script" path="res://scenes/game_manager/DecisionEngine.cs" id="1_axdny"]
+[ext_resource type="Script" path="res://scenes/game_manager/GameManager.cs" id="1_gq2g5"]
+[ext_resource type="Script" path="res://scenes/game_manager/ui/UIManager.cs" id="1_hnhoj"]
+[ext_resource type="Script" path="res://scenes/game_manager/EventBus.cs" id="2_2uwxj"]
+
+[node name="GameManager" type="Node" node_paths=PackedStringArray("EventBus")]
+script = ExtResource("1_gq2g5")
+EventBus = NodePath("EventBus")
+
+[node name="EventBus" type="Node" parent="."]
+script = ExtResource("2_2uwxj")
+
+[node name="DecisionEngine" type="Node" parent="."]
+script = ExtResource("1_axdny")
+
+[node name="UIManager" type="CanvasLayer" parent="."]
+script = ExtResource("1_hnhoj")
+
+[node name="UIContainer" type="AspectRatioContainer" parent="UIManager"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
