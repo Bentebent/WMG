@@ -1,0 +1,67 @@
+[gd_scene load_steps=2 format=3 uid="uid://ghi0177bmjar"]
+
+[ext_resource type="Texture2D" uid="uid://ylie442pluo3" path="res://scenes/decision/decision_card/decision_card_art_placeholder.jpg" id="2_v876l"]
+
+[node name="DecisionCard" type="CenterContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 404.0
+offset_bottom = 412.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Art" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_v876l")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+
+[node name="VBoxContainer" type="BoxContainer" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+vertical = true
+
+[node name="LabelContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Category" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/LabelContainer"]
+layout_mode = 2
+text = "Decision Category"
+horizontal_alignment = 1
+
+[node name="Header" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/LabelContainer"]
+layout_mode = 2
+text = "HEADER"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/LabelContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Gravida in fermentum et sollicitudin ac orci phasellus egestas tellus. Ridiculus mus mauris vitae ultricies leo integer malesuada nunc vel. Nec feugiat in fermentum posuere urna nec tincidunt praesent."
+autowrap_mode = 3
+
+[node name="ButtonContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer/ButtonContainer"]
+layout_mode = 2
+text = "Option 1"
+
+[node name="Button2" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer/ButtonContainer"]
+layout_mode = 2
+text = "Option 2"
+
+[node name="Button3" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer/ButtonContainer"]
+layout_mode = 2
+text = "Option 3"

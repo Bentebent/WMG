@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6u72vdqiaodb"]
+
+[ext_resource type="Script" path="res://scenes/game_manager/GameManager.cs" id="1_nc3qo"]
+[ext_resource type="Script" path="res://scenes/game_manager/DecisionEngine.cs" id="2_btq5j"]
+
+[node name="GameManager" type="Node"]
+script = ExtResource("1_nc3qo")
+
+[node name="DecisionEngine" type="Node" parent="."]
+script = ExtResource("2_btq5j")
