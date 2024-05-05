@@ -10,6 +10,7 @@
                 "cwd": "${workspaceFolder}",
                 "console": "internalConsole",
                 "stopAtEntry": false,
+                "enableStepFiltering": false,
                 "args": [
                     "--path",
                     "${workspaceRoot}"
@@ -24,6 +25,7 @@
                 "cwd": "${workspaceFolder}",
                 "console": "internalConsole",
                 "stopAtEntry": false,
+                "enableStepFiltering": false,
                 "args": [
                     "--path",
                     "${workspaceRoot}",
@@ -39,6 +41,7 @@
                 "cwd": "${workspaceFolder}",
                 "console": "internalConsole",
                 "stopAtEntry": false,
+                "enableStepFiltering": false,
                 "args": [
                     "--path",
                     "${workspaceRoot}",
