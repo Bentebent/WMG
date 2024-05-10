@@ -22,3 +22,11 @@ GameManager="*res://scenes/game_manager/GameManager.tscn"
 [dotnet]
 
 project/assembly_name="WhoaMamaGame"
+
+[filesystem]
+
+import/fbx/enabled=false
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0.415518, 0.534459, 0.624576, 1)

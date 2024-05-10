@@ -2,15 +2,17 @@ using System.Collections.Generic;
 
 namespace core
 {
-    public class GOAPAgent
+    public class GOAPAgent<T>
     {
-        private WorldState _worldState = null;
-        private List<GOAPAction> _actions = new List<GOAPAction>();
+        public WorldState WorldState { get; private set; }
+        public List<GOAPAction<T>> Actions { get; private set; }
+        public List<GOAPAction<T>> CurrentPlan { get; set; }
+        public GOAPAction<T> CurrentAction { get; set; }
 
-        public GOAPAgent(WorldState worldState, List<GOAPAction> actions)
+        public GOAPAgent(WorldState worldState, List<GOAPAction<T>> actions)
         {
-            _worldState = worldState;
-            _actions = actions;
+            WorldState = worldState;
+            Actions = actions;
         }
     }
 }

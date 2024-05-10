@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cq056nodaduc5"]
+
+[ext_resource type="PackedScene" uid="uid://bil18lqnm5xbg" path="res://assets/PolygonGangWarfare/Models/Buildings/SM_Bld_Wall_Brick_Window_01.blend" id="1_o2ryj"]
+
+[node name="SM_Bld_Wall_Brick_Window_01" instance=ExtResource("1_o2ryj")]
+
+[node name="SM_Bld_Wall_Brick_Window_01" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)

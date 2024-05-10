@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://boldi8dps53t1"]
+
+[ext_resource type="Script" path="res://scenes/maps/entrance/Entrance.cs" id="1_fwodt"]
+[ext_resource type="Material" uid="uid://bgdaoh7hncxue" path="res://assets/Materials/EntranceVisual.tres" id="2_pgrpx"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2gjhk"]
+
+[node name="Entrance" type="Node3D" node_paths=PackedStringArray("_placeholderVisual")]
+script = ExtResource("1_fwodt")
+_placeholderVisual = NodePath("MeshInstance3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 0, 0, 0)
+material_override = ExtResource("2_pgrpx")
+mesh = SubResource("BoxMesh_2gjhk")

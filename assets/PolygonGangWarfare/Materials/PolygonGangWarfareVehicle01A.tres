@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://dlihe3b8emhdl"]
+
+[ext_resource type="Texture2D" uid="uid://dculmmvdxkge0" path="res://Assets/PolygonGangWarfare/Textures/PolygonGangWarfare_Vehicle_01.png" id="1_gf4l2"]
+[ext_resource type="Texture2D" uid="uid://b3m6qstex8om" path="res://Assets/PolygonGangWarfare/Textures/PolygonGangWarfare_Vehicle_Emission_01.png" id="2_wpvhc"]
+
+[resource]
+albedo_texture = ExtResource("1_gf4l2")
+emission_enabled = true
+emission_texture = ExtResource("2_wpvhc")

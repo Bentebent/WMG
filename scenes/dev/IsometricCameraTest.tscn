@@ -1,0 +1,192 @@
+[gd_scene load_steps=20 format=3 uid="uid://2cspeh6guiwj"]
+
+[ext_resource type="PackedScene" uid="uid://d3g1h180nlaf5" path="res://assets/PolygonGangWarfare/Models/Buildings/SM_Bld_Floor_Asphalt_03.blend" id="1_ja7d7"]
+[ext_resource type="PackedScene" uid="uid://ogwhh56qurc0" path="res://assets/PolygonGangWarfare/Models/Buildings/SM_Bld_Wall_Brick_Door_01.blend" id="2_ewuxp"]
+[ext_resource type="PackedScene" uid="uid://kkurp73r75xb" path="res://assets/PolygonGangWarfare/Models/Buildings/SM_Bld_Wall_Brick_Window_02.blend" id="2_ujda3"]
+[ext_resource type="PackedScene" uid="uid://csabu7m1lydtp" path="res://assets/PolygonGangWarfare/Models/Buildings/SM_Bld_Wall_Brick_01.blend" id="4_xw8g5"]
+[ext_resource type="PackedScene" uid="uid://cxtyovlnrdf6u" path="res://assets/PolygonGangWarfare/Models/Buildings/SM_Bld_Roof_Flat_L_01.blend" id="5_p8s04"]
+[ext_resource type="PackedScene" uid="uid://dlocf6ohcnqog" path="res://assets/PolygonGangWarfare/Models/Buildings/SM_Bld_Roof_Flat_Straight_01.blend" id="6_n65c3"]
+[ext_resource type="PackedScene" uid="uid://c7gxe8ycxpb16" path="res://assets/PolygonGangWarfare/Models/Props/SM_Prop_Barrel_Metal_01.blend" id="7_kkxo4"]
+[ext_resource type="PackedScene" uid="uid://d2icqntatwf75" path="res://assets/PolygonGangWarfare/Models/Props/SM_Prop_Barrel_Plastic_01.blend" id="8_vtl5p"]
+[ext_resource type="PackedScene" uid="uid://1jeubknvnu5w" path="res://assets/PolygonGangWarfare/Models/Props/SM_Prop_Dumpster_01.blend" id="9_rlaxp"]
+[ext_resource type="PackedScene" uid="uid://dpi3ytcpviujc" path="res://assets/PolygonGangWarfare/Models/Buildings/SM_Bld_Metal_Door_01.blend" id="10_4s6qy"]
+[ext_resource type="PackedScene" uid="uid://bl775am0cux6e" path="res://assets/PolygonGangWarfare/Models/Vehicles/SK_Veh_Truck_01.blend" id="11_ecgld"]
+[ext_resource type="PackedScene" uid="uid://cafxmpoeu65le" path="res://assets/PolygonGangWarfare/Models/Vehicles/SK_Veh_Van_01.blend" id="12_gx1wj"]
+[ext_resource type="PackedScene" uid="uid://bbxn6fofi31tf" path="res://assets/PolygonGangWarfare/Models/Buildings/SM_Bld_Walkway_Stairs_02.blend" id="13_yp50r"]
+[ext_resource type="PackedScene" uid="uid://dwoy4iywjjx7n" path="res://assets/PolygonGangWarfare/Models/Buildings/SM_Bld_Walkway_Double_01.blend" id="14_tnhgw"]
+[ext_resource type="PackedScene" uid="uid://bbg3rxa0ppo44" path="res://assets/PolygonGangWarfare/Models/Buildings/SM_Bld_Walkway_Rail_01.blend" id="15_74l2t"]
+[ext_resource type="PackedScene" uid="uid://dxeqanlnu7sdb" path="res://assets/PolygonGangWarfare/Models/Buildings/SM_Bld_Walkway_Rail_03.blend" id="16_7yu2l"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_klumv"]
+albedo_color = Color(0.281187, 0.281187, 0.281187, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_g65ac"]
+size = Vector3(3, 0.2, 3)
+
+[sub_resource type="Environment" id="Environment_rm427"]
+ambient_light_color = Color(0.540506, 0.657535, 0.863559, 1)
+
+[node name="IsometricCameraTest" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.60042, -0.639496, 0.480147, 0, 0.60042, 0.799685, -0.799685, -0.480147, 0.360504, 9.15407, 13.9341, 6.22703)
+projection = 1
+size = 30.0
+far = 214.85
+
+[node name="SM_Bld_Floor_Asphalt_03" parent="." instance=ExtResource("1_ja7d7")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -15, 0, 15)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SM_Bld_Floor_Asphalt_03"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4865, -0.103392, -1.49933)
+material_override = SubResource("StandardMaterial3D_klumv")
+mesh = SubResource("BoxMesh_g65ac")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="SM_Bld_Wall_Brick_Door_01" parent="Node3D" instance=ExtResource("2_ewuxp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8324, 0, -0.0170369)
+
+[node name="SM_Bld_Wall_Brick_Window_02" parent="Node3D" instance=ExtResource("2_ujda3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.81718, 0, 0)
+
+[node name="SM_Bld_Wall_Brick_Window_03" parent="Node3D" instance=ExtResource("2_ujda3")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10.6565, 0, -5.83755)
+
+[node name="SM_Bld_Wall_Brick_01" parent="Node3D" instance=ExtResource("4_xw8g5")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.00551, 0, 0.171455)
+
+[node name="SM_Bld_Wall_Brick_02" parent="Node3D" instance=ExtResource("4_xw8g5")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.00551, 0, -2.76962)
+
+[node name="SM_Bld_Wall_Brick_03" parent="Node3D" instance=ExtResource("4_xw8g5")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.00551, 0, -5.80225)
+
+[node name="SM_Bld_Wall_Brick_04" parent="Node3D" instance=ExtResource("4_xw8g5")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10.6365, 0, -2.96009)
+
+[node name="SM_Bld_Wall_Brick_05" parent="Node3D" instance=ExtResource("4_xw8g5")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10.6365, 0, -2.96009)
+
+[node name="SM_Bld_Wall_Brick_06" parent="Node3D" instance=ExtResource("4_xw8g5")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10.6365, 0, -8.90867)
+
+[node name="SM_Bld_Wall_Brick_07" parent="Node3D" instance=ExtResource("4_xw8g5")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7.7737, 0, -8.8526)
+
+[node name="SM_Bld_Wall_Brick_08" parent="Node3D" instance=ExtResource("4_xw8g5")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.96511, 0, -8.8526)
+
+[node name="SM_Bld_Roof_Flat_L_01" parent="Node3D" instance=ExtResource("5_p8s04")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -7.64332, 3.24742, -0.0521644)
+
+[node name="SM_Bld_Roof_Flat_L_02" parent="Node3D" instance=ExtResource("5_p8s04")]
+transform = Transform3D(4.37114e-08, 3.82137e-15, 1, 8.74228e-08, -1, 0, 1, 8.74228e-08, -4.37114e-08, -5.00093, 3.24742, -3.05409)
+
+[node name="SM_Bld_Roof_Flat_L_03" parent="Node3D" instance=ExtResource("5_p8s04")]
+transform = Transform3D(1, -8.74228e-08, 8.74228e-08, -8.74228e-08, -1, 0, 8.74228e-08, -7.64274e-15, -1, -7.98753, 3.24742, -8.88024)
+
+[node name="SM_Bld_Roof_Flat_L_04" parent="Node3D" instance=ExtResource("5_p8s04")]
+transform = Transform3D(4.37114e-08, 3.82137e-15, -1, 8.74228e-08, -1, 0, -1, -8.74228e-08, -4.37114e-08, -10.6733, 3.24742, -5.8874)
+
+[node name="SM_Bld_Roof_Flat_Straight_01" parent="Node3D" instance=ExtResource("6_n65c3")]
+transform = Transform3D(4.37114e-08, 3.82137e-15, 1, 8.74228e-08, -1, 0, 1, 8.74228e-08, -4.37114e-08, -4.95117, 3.19776, -6.0487)
+
+[node name="SM_Bld_Roof_Flat_Straight_02" parent="Node3D" instance=ExtResource("6_n65c3")]
+transform = Transform3D(-0.000448619, 0.000202052, -1, -0.000264346, -1, -0.000201916, -1, 0.000264242, 0.00044868, -10.6485, 3.19776, -2.99225)
+
+[node name="Node3D2" type="Node3D" parent="."]
+transform = Transform3D(0.999398, 0, -0.0346902, 0, 1, 0, 0.0346902, 0, 0.999398, 1.53437, 0, -3.77394)
+
+[node name="SM_Bld_Wall_Brick_Door_01" parent="Node3D2" instance=ExtResource("2_ewuxp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8324, 0, -0.0170369)
+
+[node name="SM_Bld_Wall_Brick_Window_02" parent="Node3D2" instance=ExtResource("2_ujda3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.81718, 0, 0)
+
+[node name="SM_Bld_Wall_Brick_Window_03" parent="Node3D2" instance=ExtResource("2_ujda3")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10.6565, 0, -5.83755)
+
+[node name="SM_Bld_Wall_Brick_01" parent="Node3D2" instance=ExtResource("4_xw8g5")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.00551, 0, 0.171455)
+
+[node name="SM_Bld_Wall_Brick_02" parent="Node3D2" instance=ExtResource("4_xw8g5")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.00551, 0, -2.76962)
+
+[node name="SM_Bld_Wall_Brick_03" parent="Node3D2" instance=ExtResource("4_xw8g5")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.00551, 0, -5.80225)
+
+[node name="SM_Bld_Wall_Brick_04" parent="Node3D2" instance=ExtResource("4_xw8g5")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10.6365, 0, -2.96009)
+
+[node name="SM_Bld_Wall_Brick_05" parent="Node3D2" instance=ExtResource("4_xw8g5")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10.6365, 0, -2.96009)
+
+[node name="SM_Bld_Wall_Brick_06" parent="Node3D2" instance=ExtResource("4_xw8g5")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10.6365, 0, -8.90867)
+
+[node name="SM_Bld_Wall_Brick_07" parent="Node3D2" instance=ExtResource("4_xw8g5")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7.7737, 0, -8.8526)
+
+[node name="SM_Bld_Wall_Brick_08" parent="Node3D2" instance=ExtResource("4_xw8g5")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.96511, 0, -8.8526)
+
+[node name="SM_Bld_Roof_Flat_L_01" parent="Node3D2" instance=ExtResource("5_p8s04")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -7.64332, 3.24742, -0.0521644)
+
+[node name="SM_Bld_Roof_Flat_L_02" parent="Node3D2" instance=ExtResource("5_p8s04")]
+transform = Transform3D(4.37114e-08, 3.82137e-15, 1, 8.74228e-08, -1, 0, 1, 8.74228e-08, -4.37114e-08, -5.00093, 3.24742, -3.05409)
+
+[node name="SM_Bld_Roof_Flat_L_03" parent="Node3D2" instance=ExtResource("5_p8s04")]
+transform = Transform3D(1, -8.74228e-08, 8.74228e-08, -8.74228e-08, -1, 0, 8.74228e-08, -7.64274e-15, -1, -7.98753, 3.24742, -8.88024)
+
+[node name="SM_Bld_Roof_Flat_L_04" parent="Node3D2" instance=ExtResource("5_p8s04")]
+transform = Transform3D(4.37114e-08, 3.82137e-15, -1, 8.74228e-08, -1, 0, -1, -8.74228e-08, -4.37114e-08, -10.6733, 3.24742, -5.8874)
+
+[node name="SM_Bld_Roof_Flat_Straight_01" parent="Node3D2" instance=ExtResource("6_n65c3")]
+transform = Transform3D(4.37114e-08, 3.82137e-15, 1, 8.74228e-08, -1, 0, 1, 8.74228e-08, -4.37114e-08, -4.95117, 3.19776, -6.0487)
+
+[node name="SM_Bld_Roof_Flat_Straight_02" parent="Node3D2" instance=ExtResource("6_n65c3")]
+transform = Transform3D(-0.000448619, 0.000202052, -1, -0.000264346, -1, -0.000201916, -1, 0.000264242, 0.00044868, -10.6485, 3.19776, -2.99225)
+
+[node name="SM_Prop_Barrel_Metal_01" parent="." instance=ExtResource("7_kkxo4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.21885, -2.38419e-06, 7.601)
+
+[node name="SM_Prop_Barrel_Plastic_01" parent="." instance=ExtResource("8_vtl5p")]
+transform = Transform3D(-0.00280913, 0.682179, 0.73118, 0.99937, 0.027788, -0.0220862, -0.0353847, 0.730657, -0.681827, 1.68298, 0.308416, 6.95704)
+
+[node name="SM_Prop_Dumpster_01" parent="." instance=ExtResource("9_rlaxp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.75852, -2.38419e-06, 11.6288)
+
+[node name="SM_Bld_Metal_Door_01" parent="." instance=ExtResource("10_4s6qy")]
+transform = Transform3D(-0.988892, 0, 0.148638, 0, 1, 0, -0.148638, 0, -0.988892, -0.206844, -2.38419e-06, 8.78883)
+
+[node name="SK_Veh_Truck_01" parent="." instance=ExtResource("11_ecgld")]
+transform = Transform3D(0.893199, 0, 0.449662, 0, 1, 0, -0.449662, 0, 0.893199, 4.31128, -2.38419e-06, -5.83447)
+
+[node name="SK_Veh_Van_01" parent="." instance=ExtResource("12_gx1wj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.51779, -2.38419e-06, 9.75943)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.529002, -0.687172, -0.497948, -0.825521, 0.280727, 0.489599, -0.196651, 0.670065, -0.71578, 0, 9.11369, 0)
+shadow_enabled = true
+directional_shadow_split_2 = 0.155
+directional_shadow_split_3 = 0.221
+directional_shadow_blend_splits = true
+directional_shadow_pancake_size = 0.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_rm427")
+
+[node name="SM_Bld_Walkway_Stairs_02" parent="." instance=ExtResource("13_yp50r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.24381, 2.8897, -7.77015)
+
+[node name="SM_Bld_Walkway_Double_01" parent="." instance=ExtResource("14_tnhgw")]
+transform = Transform3D(-0.036853, 0, 0.999321, 0, 1, 0, -0.999321, 0, -0.036853, -1.76554, 2.67922, -7.70513)
+
+[node name="SM_Bld_Walkway_Rail_01" parent="." instance=ExtResource("15_74l2t")]
+transform = Transform3D(-0.010594, 0, -0.999944, 0, 1, 0, 0.999944, 0, -0.010594, -1.86108, 2.77922, -10.7648)
+
+[node name="SM_Bld_Walkway_Rail_03" parent="." instance=ExtResource("16_7yu2l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.06918, 2.77922, -10.6186)

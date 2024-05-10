@@ -1,18 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdwi5gagawqlm"]
+[gd_scene load_steps=6 format=3 uid="uid://bdwi5gagawqlm"]
 
 [ext_resource type="Script" path="res://scenes/game_manager/GameManager.cs" id="1_nc3qo"]
 [ext_resource type="Script" path="res://scenes/game_manager/DecisionEngine.cs" id="2_btq5j"]
 [ext_resource type="Script" path="res://scenes/game_manager/EventBus.cs" id="2_vxp3g"]
+[ext_resource type="Script" path="res://scenes/game_manager/LevelManager.cs" id="3_0b2hr"]
 [ext_resource type="Script" path="res://scenes/game_manager/ui/UIManager.cs" id="4_ayhgw"]
 
-[node name="GameManager" type="Node" node_paths=PackedStringArray("EventBus", "DecisionEngine", "UIManager")]
+[node name="GameManager" type="Node" node_paths=PackedStringArray("EventBus", "LevelManager", "DecisionEngine", "UIManager")]
 script = ExtResource("1_nc3qo")
 EventBus = NodePath("EventBus")
+LevelManager = NodePath("LevelManager")
 DecisionEngine = NodePath("DecisionEngine")
 UIManager = NodePath("UIManager")
 
 [node name="EventBus" type="Node" parent="."]
 script = ExtResource("2_vxp3g")
+
+[node name="LevelManager" type="Node" parent="."]
+script = ExtResource("3_0b2hr")
 
 [node name="DecisionEngine" type="Node" parent="."]
 script = ExtResource("2_btq5j")

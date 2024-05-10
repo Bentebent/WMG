@@ -49,6 +49,11 @@ namespace core
             return Equals(obj as WorldState);
         }
 
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
         public bool Equals(WorldState other)
         {
             if (other == null)

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Godot;
 
 namespace core
 {
@@ -7,17 +8,17 @@ namespace core
     {
         public GOAPPlanner() { }
 
-        public List<GOAPAction> Plan(
+        public List<GOAPAction<T>> Plan<T>(
             WorldState currentState,
             WorldState goalState,
-            List<GOAPAction> availableActions
+            List<GOAPAction<T>> availableActions
         )
         {
-            var open = new List<GOAPNode>();
-            var closed = new List<GOAPNode>();
+            var open = new List<GOAPNode<T>>();
+            var closed = new List<GOAPNode<T>>();
 
             open.Add(
-                new GOAPNode(
+                new GOAPNode<T>(
                     currentState.DeepCopy(),
                     0,
                     Heuristic(currentState, goalState),
@@ -34,7 +35,7 @@ namespace core
 
                 if (current.State.OtherIsSubset(goalState))
                 {
-                    List<GOAPAction> plan = new List<GOAPAction>();
+                    List<GOAPAction<T>> plan = new List<GOAPAction<T>>();
                     while (current.Parent != null)
                     {
                         plan.Add(current.Action);
@@ -62,7 +63,7 @@ namespace core
                     var existingOpenNode = GetNodeWithState(afterActionState, open);
                     if (existingOpenNode == null)
                     {
-                        var newNode = new GOAPNode(
+                        var newNode = new GOAPNode<T>(
                             afterActionState,
                             current.G + action.GetCost(current.State),
                             Heuristic(afterActionState, goalState),
@@ -94,7 +95,7 @@ namespace core
             return 0.0f;
         }
 
-        private GOAPNode GetNodeWithState(WorldState state, List<GOAPNode> list)
+        private GOAPNode<T> GetNodeWithState<T>(WorldState state, List<GOAPNode<T>> list)
         {
             foreach (var node in list)
             {

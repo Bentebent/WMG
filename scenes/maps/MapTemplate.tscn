@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://o0o5l8p8omd4"]
+
+[ext_resource type="Script" path="res://scenes/maps/Map.cs" id="1_6vptc"]
+[ext_resource type="Material" uid="uid://dcqtfdflcmaif" path="res://assets/Materials/Baseplate.tres" id="1_xkvoo"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_w6ddd"]
+resource_local_to_scene = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_8e5ca"]
+size = Vector3(40, 0.2, 40)
+
+[node name="MapTemplate" type="Node3D" node_paths=PackedStringArray("_entrancesContainer", "_exitsContainer")]
+script = ExtResource("1_6vptc")
+_entrancesContainer = NodePath("EntranceContainer")
+_exitsContainer = NodePath("ExitContainer")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_w6ddd")
+
+[node name="Baseplate" type="Node3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Baseplate"]
+material_override = ExtResource("1_xkvoo")
+mesh = SubResource("BoxMesh_8e5ca")
+
+[node name="MapGeometry" type="Node3D" parent="NavigationRegion3D"]
+
+[node name="EntranceContainer" type="Node3D" parent="."]
+
+[node name="ExitContainer" type="Node3D" parent="."]
+
+[node name="PlaceholderCamera" type="Camera3D" parent="."]
+transform = Transform3D(0.60042, -0.639496, 0.480147, 0, 0.60042, 0.799685, -0.799685, -0.480147, 0.360504, 9.15407, 13.9341, 6.22703)
+projection = 1
+size = 30.0
+far = 225.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]

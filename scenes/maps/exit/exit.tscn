@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://rgbrvwd850xv"]
+
+[ext_resource type="Script" path="res://scenes/maps/exit/Exit.cs" id="1_nhpfd"]
+[ext_resource type="Material" uid="uid://7qf3toa4wn1i" path="res://assets/Materials/ExitVisual.tres" id="2_3khy7"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vi1w3"]
+
+[node name="Exit" type="Node3D" node_paths=PackedStringArray("_placeholderVisual")]
+script = ExtResource("1_nhpfd")
+_placeholderVisual = NodePath("MeshInstance3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 0, 0, 0)
+material_override = ExtResource("2_3khy7")
+mesh = SubResource("BoxMesh_vi1w3")
