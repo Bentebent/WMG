@@ -47,5 +47,23 @@ namespace wmg
             var randomEntrance = Entrances[GD.RandRange(0, Entrances.Count - 1)];
             return randomEntrance.GetRandomPositionInArea();
         }
+
+        public Exit GetClosestExit(Vector3 position)
+        {
+            var closestExit = Exits[0];
+            var closestDistance = position.DistanceTo(closestExit.GlobalPosition);
+
+            foreach (var exit in Exits)
+            {
+                var distance = position.DistanceTo(exit.GlobalPosition);
+                if (distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    closestExit = exit;
+                }
+            }
+
+            return closestExit;
+        }
     }
 }

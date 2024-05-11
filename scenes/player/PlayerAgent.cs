@@ -12,7 +12,7 @@ namespace wmg
         private GOAPAgent<PlayerAgent> _agent = null;
         private GOAPPlanner _planner = null;
 
-        private bool _once = false;
+        private bool _once = true;
 
         public override void _Ready()
         {
@@ -21,7 +21,8 @@ namespace wmg
                 new WorldState(),
                 new List<GOAPAction<PlayerAgent>>()
                 {
-                    new FindResourceAction<PlayerAgent>(gameManager)
+                    new FindResourceAction<PlayerAgent>(gameManager),
+                    new FindExitAction<PlayerAgent>(gameManager)
                 }
             );
             _planner = new GOAPPlanner();
@@ -36,7 +37,7 @@ namespace wmg
                 _once = false;
 
                 var goalState = new WorldState();
-                goalState.Set("hasResource", true);
+                goalState.Set("exitMap", true);
 
                 var newPlan = _planner.Plan(_agent.WorldState, goalState, _agent.Actions);
                 if (newPlan != null)

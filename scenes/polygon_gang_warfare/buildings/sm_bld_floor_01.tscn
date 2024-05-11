@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbdw8igax2eyw"]
+
+[ext_resource type="PackedScene" uid="uid://dsqhkojrq5oa6" path="res://assets/PolygonGangWarfare/Models/Buildings/SM_Bld_Floor_01.blend" id="1_3vrkw"]
+
+[node name="SM_Bld_Floor_01" instance=ExtResource("1_3vrkw")]

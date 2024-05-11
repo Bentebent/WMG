@@ -2,11 +2,11 @@ using Godot;
 
 namespace wmg
 {
-    class FindResourceAction<T> : core.GOAPAction<T>
-        where T : INavigatable3D
+    class FindExitAction<T> : core.GOAPAction<T>
+        where T : Node3D, INavigatable3D
     {
-        public FindResourceAction(GameManager gameManager)
-            : base("FindResource", gameManager) { }
+        public FindExitAction(GameManager gameManager)
+            : base("FindExit", gameManager) { }
 
         public override float GetCost(core.WorldState state)
         {
@@ -15,37 +15,34 @@ namespace wmg
 
         public override bool CheckPreconditions(core.WorldState state)
         {
-            return state.Get<bool>("hasResource") == false;
+            return true;
         }
 
         public override core.WorldState ApplyEffects(core.WorldState state)
         {
-            state.Set("hasResource", true);
+            state.Set("exitMap", true);
             return state;
         }
 
         public override void EnterAction(core.GOAPAgent<T> agent, T actor)
         {
-            GD.Print("Entering FindResource action");
-            //Find nearest resource
+            var closestExit = _gameManager.LevelManager.CurrentLevel.GetClosestExit(
+                actor.GlobalPosition
+            );
 
-            var resources = _gameManager.GetTree().GetNodesInGroup("Resource");
-            var selectedResource = resources[0] as Node3D;
-
-            agent.WorldState.Set("resourceTarget", selectedResource.GlobalTransform.Origin);
-            actor.NavigationAgent.TargetPosition = agent.WorldState.Get<Vector3>("resourceTarget");
+            agent.WorldState.Set("exitTarget", closestExit.GlobalPosition);
+            actor.NavigationAgent.TargetPosition = agent.WorldState.Get<Vector3>("exitTarget");
         }
 
         public override void ExitAction(core.GOAPAgent<T> agent, T actor, bool interrupted)
         {
-            //Clear resource target
-            GD.Print("Exiting FindResource action");
+            //Clear exit target
         }
 
         public override bool Run(core.GOAPAgent<T> agent, T actor)
         {
             var player = actor as PlayerAgent;
-            //Move towards resource
+            //Move towards exit
             var nextPathPos = player.NavigationAgent.GetNextPathPosition();
             var newVelocity = player.GlobalPosition.DirectionTo(nextPathPos) * 1.0f;
             actor.NavigationAgent.Velocity = newVelocity;

@@ -23,7 +23,7 @@ namespace wmg
         {
             GD.Print("GameManager Ready");
 
-            LevelManager.LoadLevel("res://scenes/maps/DemoMap.tscn");
+            //LevelManager.LoadLevel("res://scenes/maps/DemoMap.tscn");
         }
 
         // Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3o4eaor738dc"]
+
+[ext_resource type="PackedScene" uid="uid://dt0u4645we2gc" path="res://scenes/polygon_gang_warfare/buildings/sm_bld_floor_asphalt_01.tscn" id="1_uq7hp"]
+[ext_resource type="PackedScene" uid="uid://owm1dotr3l1v" path="res://scenes/polygon_gang_warfare/buildings/sm_bld_floor_asphalt_02.tscn" id="2_1f8vk"]
+[ext_resource type="PackedScene" uid="uid://ccncvya42pcaf" path="res://scenes/polygon_gang_warfare/buildings/sm_bld_floor_asphalt_03.tscn" id="3_hwtbb"]
+
+[node name="MeshLibraryTest" type="Node3D"]
+
+[node name="SM_Bld_Floor_Asphalt_01" parent="." instance=ExtResource("1_uq7hp")]
+
+[node name="SM_Bld_Floor_Asphalt_02" parent="." instance=ExtResource("2_1f8vk")]
+
+[node name="SM_Bld_Floor_Asphalt_03" parent="." instance=ExtResource("3_hwtbb")]

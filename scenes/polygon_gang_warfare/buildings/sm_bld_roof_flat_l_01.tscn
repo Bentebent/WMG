@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5gygbi5otaq"]
+
+[ext_resource type="PackedScene" uid="uid://cxtyovlnrdf6u" path="res://assets/PolygonGangWarfare/Models/Buildings/SM_Bld_Roof_Flat_L_01.blend" id="1_26qot"]
+
+[node name="SM_Bld_Roof_Flat_L_01" instance=ExtResource("1_26qot")]
