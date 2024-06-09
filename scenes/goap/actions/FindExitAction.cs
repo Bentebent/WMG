@@ -2,6 +2,7 @@ using Godot;
 
 namespace wmg
 {
+    /*
     class FindExitAction<T> : core.GOAPAction<T>
         where T : Node3D, INavigatable3D
     {
@@ -14,6 +15,16 @@ namespace wmg
         }
 
         public override bool CheckPreconditions(core.WorldState state)
+        {
+            return true;
+        }
+
+        public override bool RunProceduralConditions(
+            core.WorldState currentState,
+            core.WorldState goalState,
+            core.GOAPAgent<T> agent,
+            T actor
+        )
         {
             return true;
         }
@@ -52,4 +63,5 @@ namespace wmg
             return false;
         }
     }
+    */
 }

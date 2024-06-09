@@ -9,13 +9,14 @@ namespace wmg
         [Export]
         public NavigationAgent3D NavigationAgent { get; private set; }
 
-        private GOAPAgent<PlayerAgent> _agent = null;
-        private GOAPPlanner _planner = null;
+        //        private GOAPAgent<PlayerAgent> _agent = null;
+        //       private GOAPPlanner _planner = null;
 
         private bool _once = true;
 
         public override void _Ready()
         {
+            /*
             var gameManager = GetNode<GameManager>("/root/GameManager");
             _agent = new GOAPAgent<PlayerAgent>(
                 new WorldState(),
@@ -28,10 +29,12 @@ namespace wmg
             _planner = new GOAPPlanner();
 
             _agent.WorldState.Set("hasResource", false);
+            */
         }
 
         public override void _Process(double delta)
         {
+            /*
             if (_once)
             {
                 _once = false;
@@ -59,6 +62,7 @@ namespace wmg
 
                 _agent.CurrentAction?.EnterAction(_agent, this);
             }
+            */
         }
     }
 }

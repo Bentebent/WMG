@@ -2,6 +2,7 @@ using Godot;
 
 namespace wmg
 {
+    /*
     class FindResourceAction<T> : core.GOAPAction<T>
         where T : INavigatable3D
     {
@@ -16,6 +17,16 @@ namespace wmg
         public override bool CheckPreconditions(core.WorldState state)
         {
             return state.Get<bool>("hasResource") == false;
+        }
+
+        public override bool RunProceduralConditions(
+            core.WorldState currentState,
+            core.WorldState goalState,
+            core.GOAPAgent<T> agent,
+            T actor
+        )
+        {
+            return true;
         }
 
         public override core.WorldState ApplyEffects(core.WorldState state)
@@ -55,4 +66,5 @@ namespace wmg
             return false;
         }
     }
+*/
 }

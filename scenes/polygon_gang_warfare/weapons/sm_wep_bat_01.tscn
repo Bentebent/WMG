@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqd6lma1774p8"]
+
+[ext_resource type="PackedScene" uid="uid://bqucs56asdlr3" path="res://assets/PolygonGangWarfare/Models/Weapons/SM_Wep_Bat_01.blend" id="1_vpe4f"]
+
+[node name="SM_Wep_Bat_01" instance=ExtResource("1_vpe4f")]

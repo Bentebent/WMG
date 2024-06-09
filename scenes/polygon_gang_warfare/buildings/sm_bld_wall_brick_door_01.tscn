@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://wyu40glclc1"]
+
+[ext_resource type="PackedScene" uid="uid://ogwhh56qurc0" path="res://assets/PolygonGangWarfare/Models/Buildings/SM_Bld_Wall_Brick_Door_01.blend" id="1_epbds"]
+
+[node name="SM_Bld_Wall_Brick_Door_01" instance=ExtResource("1_epbds")]

@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://wbsyikb6grds"]
+
+[ext_resource type="PackedScene" uid="uid://du3pwqwlyiom7" path="res://scenes/polygon_gang_warfare/buildings/sm_bld_wall_brick_exterior_corner_01.tscn" id="1_lhxnh"]
+[ext_resource type="PackedScene" uid="uid://cq056nodaduc5" path="res://scenes/polygon_gang_warfare/buildings/sm_bld_wall_brick_window_01.tscn" id="2_pqqlc"]
+[ext_resource type="PackedScene" uid="uid://bo4y6p530axyb" path="res://scenes/polygon_gang_warfare/buildings/sm_bld_wall_brick_01.tscn" id="3_vpi7x"]
+[ext_resource type="PackedScene" uid="uid://wyu40glclc1" path="res://scenes/polygon_gang_warfare/buildings/sm_bld_wall_brick_door_01.tscn" id="4_7q4de"]
+[ext_resource type="PackedScene" uid="uid://mj72j0buy2ax" path="res://scenes/polygon_gang_warfare/buildings/sm_bld_wall_brick_door_02.tscn" id="5_hfyv8"]
+
+[node name="PolygonGangWarfareWalls" type="Node3D"]
+
+[node name="SM_Bld_Wall_Brick_Exterior_Corner_01" parent="." instance=ExtResource("1_lhxnh")]
+
+[node name="SM_Bld_Wall_Brick_Window_01" parent="." instance=ExtResource("2_pqqlc")]
+
+[node name="SM_Bld_Wall_Brick_01" parent="." instance=ExtResource("3_vpi7x")]
+
+[node name="SM_Bld_Wall_Brick_Door_01" parent="." instance=ExtResource("4_7q4de")]
+
+[node name="SM_Bld_Wall_Brick_Door_02" parent="." instance=ExtResource("5_hfyv8")]

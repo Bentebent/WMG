@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Godot;
+using wmg;
 
 namespace core
 {
@@ -9,10 +11,13 @@ namespace core
         public GOAPPlanner() { }
 
         public List<GOAPAction<T>> Plan<T>(
+            GameManager gameManager,
             WorldState currentState,
             WorldState goalState,
-            List<GOAPAction<T>> availableActions
+            List<GOAPAction<T>> availableActions,
+            T actor
         )
+            where T : Node3D, wmg.INavigatable3D
         {
             var open = new List<GOAPNode<T>>();
             var closed = new List<GOAPNode<T>>();
@@ -42,18 +47,57 @@ namespace core
                         current = current.Parent;
                     }
                     plan.Reverse();
+
+                    //Post process plan to insert handling navigation obstacles
+                    //TODO
+                    //Where do we put this shit?
+                    Dictionary<int, List<GOAPAction<T>>> insertPositions =
+                        new Dictionary<int, List<GOAPAction<T>>>();
+                    foreach (var action in plan)
+                    {
+                        if (action is BaseMoveAction<T> moveAction)
+                        {
+                            foreach (var door in action.Doors)
+                            {
+                                if (!door.IsOpen)
+                                {
+                                    int idx = plan.IndexOf(action);
+                                    insertPositions.TryAdd(idx, new List<GOAPAction<T>>());
+                                    insertPositions[idx].Add(
+                                        new OpenDoorAction<T>(
+                                            $"OpenDoor {door.Name}",
+                                            gameManager,
+                                            door
+                                        )
+                                    );
+                                }
+                            }
+                        }
+                    }
+
+                    foreach (var kvp in insertPositions)
+                    {
+                        plan.InsertRange(kvp.Key, kvp.Value);
+                    }
+
                     return plan;
                 }
 
                 foreach (var action in availableActions)
                 {
+                    var selectedAction = action.ShallowCopy();
                     //Action is not applicable for the current state
-                    if (!action.CheckPreconditions(current.State))
+                    if (!selectedAction.CheckPreconditions(current.State))
                     {
                         continue;
                     }
 
-                    var afterActionState = action.ApplyEffects(current.State.DeepCopy());
+                    if (!selectedAction.ProceduralCondition(current.State, goalState, actor))
+                    {
+                        continue;
+                    }
+
+                    var afterActionState = selectedAction.ApplyEffects(current.State.DeepCopy());
 
                     if (GetNodeWithState(afterActionState, closed) != null)
                     {
@@ -65,9 +109,9 @@ namespace core
                     {
                         var newNode = new GOAPNode<T>(
                             afterActionState,
-                            current.G + action.GetCost(current.State),
+                            current.G + selectedAction.GetCost(current.State),
                             Heuristic(afterActionState, goalState),
-                            action,
+                            selectedAction,
                             current
                         );
                         open.Add(newNode);
@@ -75,11 +119,11 @@ namespace core
                     }
                     else
                     {
-                        if (current.G + action.GetCost(current.State) < existingOpenNode.G)
+                        if (current.G + selectedAction.GetCost(current.State) < existingOpenNode.G)
                         {
-                            existingOpenNode.G = current.G + action.GetCost(current.State);
+                            existingOpenNode.G = current.G + selectedAction.GetCost(current.State);
                             existingOpenNode.H = Heuristic(afterActionState, goalState);
-                            existingOpenNode.Action = action;
+                            existingOpenNode.Action = selectedAction;
                             existingOpenNode.Parent = current;
                             open.OrderBy(x => x.F);
                         }
