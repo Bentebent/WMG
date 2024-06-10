@@ -15,6 +15,8 @@ public partial class DoorTestAgent : CharacterBody3D, INavigatable3D
     bool once = true;
     bool nav_loaded = false;
 
+    public List<wmg.Key> Keys { get; private set; } = new List<wmg.Key>();
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {

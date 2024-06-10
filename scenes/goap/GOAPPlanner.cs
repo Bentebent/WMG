@@ -59,6 +59,26 @@ namespace core
                         {
                             foreach (var door in action.Doors)
                             {
+                                if (door.IsLocked)
+                                {
+                                    int idx = plan.IndexOf(action);
+                                    insertPositions.TryAdd(idx, new List<GOAPAction<T>>());
+                                    insertPositions[idx].Add(
+                                        new FetchKeyAction<T>(
+                                            $"FetchKey {door.Name}",
+                                            gameManager,
+                                            door.Key
+                                        )
+                                    );
+
+                                    insertPositions[idx].Add(
+                                        new UnlockDoorAction<T>(
+                                            $"FetchKey {door.Name}",
+                                            gameManager,
+                                            door
+                                        )
+                                    );
+                                }
                                 if (!door.IsOpen)
                                 {
                                     int idx = plan.IndexOf(action);

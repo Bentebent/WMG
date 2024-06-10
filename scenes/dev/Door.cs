@@ -7,10 +7,16 @@ public partial class Door : Node3D
     public bool IsOpen { get; private set; }
 
     [Export]
+    public bool IsLocked { get; private set; }
+
+    [Export]
     private Node3D _doorContainer = null;
 
     [Export]
     private NavigationLink3D _navLink = null;
+
+    [Export]
+    public wmg.Key Key { get; set; }
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -32,10 +38,18 @@ public partial class Door : Node3D
 
     public void Lock() { }
 
-    public void Unlock() { }
+    public void Unlock()
+    {
+        IsLocked = false;
+    }
 
     public void Open()
     {
+        if (IsLocked || IsOpen)
+        {
+            return;
+        }
+
         _doorContainer.RotateY(-Mathf.Pi / 2.0f);
     }
 

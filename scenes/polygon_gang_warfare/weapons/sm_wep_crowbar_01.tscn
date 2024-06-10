@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://chws3ak2p5tns"]
+
+[ext_resource type="PackedScene" uid="uid://c1bs7kk1h4hc2" path="res://assets/PolygonGangWarfare/Models/Weapons/SM_Wep_Crowbar_01.blend" id="1_83bgb"]
+
+[node name="SM_Wep_Crowbar_01" instance=ExtResource("1_83bgb")]
